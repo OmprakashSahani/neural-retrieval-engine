@@ -1,0 +1,7 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "use_hnsw": true,
+  "m": 32,
+  "ef_search": 64,
+  "index_path": "data/index/fiqa-mini.hnsw.faiss"
+}

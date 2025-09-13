@@ -1,0 +1,21 @@
+# venv & Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# data & indexes
+data/*
+!data/raw/
+!data/proc/
+!data/index/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/

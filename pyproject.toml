@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "willrec"
+version = "0.0.1"
+description = "Neural Retrieval Engine with Hybrid Ranking"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Omprakash Sahani" }]
+license = { text = "MIT" }
+dependencies = [
+  "typer>=0.12",
+  "rich>=13",
+  "pydantic>=2.7",
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "pandas>=2.2",
+  "rank-bm25>=0.2.2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.5",
+  "black>=24.4",
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "mypy>=1.10",
+  "types-requests",
+]
+ml = [
+  "sentence-transformers>=3.0",
+  "faiss-cpu>=1.8.0.post1",
+  "hnswlib>=0.8.0",
+]
+server = [
+  "fastapi>=0.111",
+  "uvicorn>=0.30",
+  "streamlit>=1.36",
+]
+all = ["willrec[dev,ml,server]"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E","F","I","B","UP"]
+ignore = []
+fix = true
+exclude = ["data"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unreachable = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-q"
+testpaths = ["tests"]
